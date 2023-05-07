@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Title page -->
+    <title>Data Engineer - Luca Soriani | Personal profile</title>
+    <meta name="author" content="Luca Soriani"/>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+
+    <link rel="canonical" href=""/>
+    <link rel="home" href=""/>
+    
+    <meta name="description" content="Home page of personal profile of Luca Soriani. This a presentation of my work as Data Engineer and projects about Physics and Full Stack."/>
+    <meta name="keywords" content="Data Engineer Luca Soriani Python Machine Learning Full Stack Physics Profile Projects Quantum Computing"/>
+    
+    <!-- Icon Page -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app_profile/img/ls_icon.ico' %}"/>
+
+    <!-- Vendor CSS Files -->
+    <link type="text/css" href="{% static 'app_profile/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"/>
+
+    <!-- CSS File -->
+    <link type="text/css" href="{% static 'app_profile/css/style.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/css/text.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/css/carusel-card.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/css/contact.css' %}" rel="stylesheet"/>
+    <link type="text/css" href="{% static 'app_profile/css/footer.css' %}" rel="stylesheet"/>
+
+    <!-- Fa fa icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+  <body>
+    <h1 style="display:none;">Data Engineer - Luca Soriani | Personal Profile - Physics Full Stack</h1>
+    <!-- ======= Start Header ======= -->
+    {% include 'app_profile/eng/partials/nav.html' %} 
+    <!-- ======= End Header ======= -->
+    
+    <!-- ======= Home Section ======= -->
+    {% include 'app_profile/eng/home.html' %}
+    <!-- ======= End Home Section ======= -->
+    <main id="main">
+      <!-- ======= About Section ======= -->
+      {% include 'app_profile/eng/about.html' %}
+      <!-- ======= End About Section ======= -->
+
+      <!-- ======= Skills Section ======= -->
+      {% include 'app_profile/eng/skills.html' %}
+      <!-- ======= End Skills Section ======= -->
+
+      <!-- ======= My Resume Section ======= -->
+      {% include 'app_profile/eng/resume.html' %}
+      <!-- ======= End My Resume Section ======= -->
+    
+      <!-- ======= Certifications Section ======= -->
+      {% include 'app_profile/eng/certifications.html' %}
+      <!-- ======= End Certifications Section ======= -->
+
+      <!-- ======= My Projects Section ======= -->
+      {% include 'app_profile/eng/projects.html' %}
+      <!-- ======= End My Projects Section ======= -->
+
+      <!-- ======= Contact Me Section ======= -->
+      {% include 'app_profile/eng/contact.html' %}
+      <!-- ======= End Contact Me Section ======= -->
+
+    </main>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    {% include 'app_profile/eng/partials/footer.html' %}
+    <!-- ======= End Footer ======= -->
+
+    <a href="#home" class="back-to-top d-flex align-items-center justify-content-center scrollto"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'app_profile/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+    <!-- Template Main JS File -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="{% static 'app_profile/js/main.js' %}"></script>
+    <script src="{% static 'app_profile/js/text.js' %}"></script>
+    <script src="{% static 'app_profile/js/contact.js' %}"></script>
+  </body>
+</html>

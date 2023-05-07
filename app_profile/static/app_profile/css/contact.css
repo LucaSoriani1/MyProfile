@@ -1,0 +1,220 @@
+/*--------------------------------------------------------------
+# Contact Me
+--------------------------------------------------------------*/
+.contact .info-box {
+  color: #444444;
+  text-align: center;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 20px 0 30px 0;
+}
+
+.contact .info-box i.bx {
+  font-size: 24px;
+  color: #ffb727;
+  border-radius: 50%;
+  padding: 15px;
+  background: #fff6e4;
+}
+
+.contact .info-box h3 {
+  font-size: 20px;
+  color: #777777;
+  font-weight: 700;
+  margin: 10px 0;
+}
+
+.contact .info-box p {
+  padding: 0;
+  line-height: 24px;
+  font-size: 14px;
+  margin-bottom: 0;
+}
+
+.contact .social-links {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.contact .social-links a, 
+.github {
+  font-size: 18px;
+  display: inline-block;
+  color: #687683;
+  line-height: 1;
+  margin: 0 8px;
+  transition: 0.3s;
+  padding: 14px;
+  border-radius: 50px;
+  border: 1px solid #dde1e4;
+}
+
+.contact .social-links a:hover {
+  color: #fff;
+  border-color: #d18c03;
+  background: #d18c03;
+}
+
+.contact .php-email-form {
+  height: 100%;
+  box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
+  padding: 27px;
+  padding-bottom: 0;
+}
+
+.contact .php-email-form .validate {
+  display: none;
+  color: red;
+  margin: 0 0 15px 0;
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.contact .php-email-form .error-message {
+  display: none;
+  color: #fff;
+  background: #ed3c0d;
+  text-align: left;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .error-message br + br {
+  margin-top: 25px;
+}
+
+.contact .php-email-form .sent-message {
+  display: none;
+  color: #fff;
+  background: #18d26e;
+  text-align: center;
+  padding: 15px;
+  font-weight: 600;
+}
+
+.contact .php-email-form .loading {
+  display: none;
+  background: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.contact .php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  -webkit-animation: animate-loading 1s linear infinite;
+  animation: animate-loading 1s linear infinite;
+}
+
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.contact .php-email-form input::focus,
+.contact .php-email-form textarea::focus {
+  background-color: #ffb727;
+}
+
+.contact .php-email-form input {
+  padding: 10px 15px;
+}
+
+.contact .php-email-form textarea {
+  padding: 12px 15px;
+}
+
+.contact .php-email-form button[type="submit"] {
+  background: #ffb727;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 5px;
+}
+
+.contact .php-email-form button[type="submit"]:hover {
+  background: #d18c03;
+}
+
+#submit-button-contact{
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+@media (max-width:991px) {
+  .contact .php-email-form{
+    margin-top: 30px;
+  }  
+}
+
+.button-loader {
+  position: relative; /* Posizione relativa per il contenitore */
+}
+
+/* Regola CSS per il bottone */
+#submit-button-contact button {
+  position: relative; /* Posizione relativa per il bottone */
+  z-index: 1; /* Imposta lo z-index sopra il loader */
+}
+
+/* Regola CSS per il loader */
+#loader {
+  width: 100%;
+  height: 100%;
+  display: none; /* Nascondi il loader per impostazione predefinita */
+  padding-top: 100px;
+}
+
+/* Regola CSS per l'immagine del loader */
+#loader img {
+  position: absolute; /* Posizione assoluta per l'immagine */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Sposta l'immagine al centro del contenitore */
+}
+
+@media (max-width:991px) {
+#loader {
+  padding-top: 74px;
+}
+#loader img {
+  top:50%
+}
+}
+
+#id-qualcosa{
+height: 100%;
+}
+
+#contact-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+#social-profiles {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+#social-profiles-contact{
+display: flex;
+justify-content: space-between;
+max-width: none;
+width: auto;
+}
+
+.toast-header{
+color: #dfdfdf;
+background-color: #18d26e;
+}

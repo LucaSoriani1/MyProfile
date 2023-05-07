@@ -1,0 +1,25 @@
+.row-projects{
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.projects-container{
+    display: flex;
+    justify-content: space-around;
+}
+
+#projects-img {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#projects-info{
+    left: 0;
+    right: 0;
+}
+
+.show-more-button {
+    width: 180px;
+    margin-top: 40px;
+}

@@ -1,0 +1,176 @@
+
+.project-description{
+    padding-right: 10vw;
+    padding-left: 5vw;
+}
+
+.details-container{
+    float: right;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    box-shadow: 5px -5px 20px rgba(0,0,0,0.5);
+    border-radius: 50px;
+}
+
+.image-project {
+    width: 100%;
+    border-radius: 50px 50px 0 0;
+}
+
+#description{
+    font-size: 17px;
+    margin-bottom: 0;
+}
+
+.description-mobile{
+    display: none;
+}
+
+.project-info{
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(59, 67, 74, 0.08);
+    border-radius: 0 0 50px 50px;
+}
+
+.project-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.description-ol {
+    margin:0 10px 1.2em;
+    padding:0;
+    counter-reset:item;
+  }
+   
+  .description-ol>li {
+    margin:0;
+    padding:0 0 0 2em;
+    text-indent:-2em;
+    list-style-type:none;
+    counter-increment:item;
+  }
+   
+  .description-ol>li:before {
+    display:inline-block;
+    width:1.5em;
+    padding-right:0.5em;
+    font-weight:bold;
+    text-align:right;
+    content:counter(item) ".";
+  }
+
+.project-info ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-info ul li{
+    margin-top: 12px;
+}
+
+@media (max-width:991px){
+
+    .description-mobile{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-right: 25px;
+        margin-left: 25px;
+    }
+
+    .description-mobile button{
+        margin-top: 22px;
+    }
+    
+    .cutoff-text{
+        --max-line: 13;
+        display: -webkit-box;
+        --line-height: 1.4;
+        line-height: var(--line-height);
+        max-height: calc(var(--line-height)*var(--max-line));
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: var(--max-line);
+        position: relative;
+    }
+
+    .cutoff-text:has(+ .expand-button:not(:checked))::before{
+        content: '';
+        position: absolute;
+        height: calc(1.2rem*var(--line-height));
+        width: 100%;
+        bottom: 0;
+        pointer-events: none;
+        background: linear-gradient(to bottom, transparent, white);
+    }
+
+    .expand-button{
+        appearance: none;
+        background-color: #ffb727;
+        cursor: pointer;
+        width: 180px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 20px;
+        border-radius: 4px;
+        margin-top: 25px;
+    }
+
+    .expand-button:hover{
+        background-color: #d18c03;
+    }
+
+    .expand-button::before{
+        content: "Show more";
+    }
+
+    .expand-button:checked::before{
+        content: "Hide";
+    }
+
+    .expand-button-it::before{
+        content: "Altro";
+    }
+
+    .expand-button-it:checked::before{
+        content: "Nascondi";
+    }
+
+    .cutoff-text:has(+ .expand-button:checked){
+        --max-line:none;
+    }
+
+
+    #description{
+        display: none;
+    }
+    .details-container{
+        margin-top: 100px;
+        margin-right: 40px;
+    }
+}
+
+
+
+/* @media (min-width:992px){   
+    .details-container{
+        margin-top: 25%;
+    }
+} */
+
+
+/* .cutoff-text{
+    --max-line: 12;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: var(--max-line);
+} */

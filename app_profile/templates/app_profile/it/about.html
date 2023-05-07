@@ -1,0 +1,159 @@
+{% load static %}
+<!-- ======= About Me Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title section-title-mobile">
+      <span>
+        Su di me
+      </span>
+      <h2>
+        Su di me
+      </h2>
+      <p>
+        {{me.userprofile.bio_it}}
+      </p>
+    </div>
+    <div class="row">
+      <div class="image col-lg-4 d-flex align-items-stretch justify-content-center">
+      </div>
+      <div class="col-lg-8 d-flex flex-column align-items-stretch" id="about-me">
+        <div class="section-title section-title-all-width">
+          <span>
+            Su di me
+          </span>
+          <h2>
+            Su di me
+          </h2>
+          <p>
+            {{me.userprofile.bio_it}}
+          </p>
+        </div>
+        <div class="content ps-lg-4 d-flex flex-column justify-content-center">
+          <div class="row mb-2">
+            <div class="col-lg-6">
+              <ul>
+                <li>
+                  <i class="bi bi-chevron-right">
+                  </i> 
+                  <strong>
+                    Nome:
+                  </strong>
+                  <span>
+                    {{me.first_name}} {{me.last_name}}
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right">
+                  </i>
+                  <strong>
+                    Telefono:
+                  </strong>
+                  <span>
+                    {{user.phone}}
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right">
+                  </i>
+                  <strong>
+                    Città:
+                  </strong>
+                  <span>
+                    {{user.city_it}}
+                  </span>
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li>
+                  <i i class="bi bi-chevron-right">
+                  </i>
+                  <strong>
+                    Età:
+                  </strong>
+                  <span>
+                    {{age}}
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right">
+                  </i>
+                  <strong>
+                    Istruzione:
+                  </strong>
+                  <span>
+                    Laurea Magistrale (in corso)
+                  </span>
+                </li>
+                <li>
+                  <i class="bi bi-chevron-right">
+                  </i>
+                  <strong>
+                    Email:
+                  </strong>
+                  <span>
+                    <a href="mailto:{{me.email}}">
+                      {{me.email}}
+                    </a>
+                  </span>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row mt-n4">
+            <div class="col-md-12 mt-5 d-md-flex align-items-md-stretch justify-content-between">
+              <div class="count-box">
+                <div class="count-box-row">
+                  <i class="bi bi-journal-richtext" style="color: #8a1ac2">
+                  </i>
+                  <span data-purecounter-start="0" data-purecounter-end="{{ projects_all|length }}" data-purecounter-duration="1" class="purecounter">
+                  </span>
+                  <span class="items-list">
+                    Progetti
+                  </span>
+                </div>
+                <p>
+                  Progetti personali sviluppati principalmente in Python. I principali progetti variano da soluzioni di problemi di <strong>matematica/fisica</strong> e <strong>Machine Learning</strong>.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-5 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <div class="count-box-row">
+                  <i class="bi bi-clock" style="color: #2cbdee">
+                  </i>
+                  <span data-purecounter-start="0" data-purecounter-end="{{experience}}" data-purecounter-duration="1" class="purecounter">
+                  </span>
+                  <span class="items-list">
+                    Anni di esperienza
+                  </span>
+                </div>
+                <p>
+                  Anni di esperienza di lavoro come <strong>Cloud Engineer</strong> e <strong>Data Engineer</strong>. In questi anni ho imparato come manipolare ed estrarre dati con svariate tecnologie e liguaggi.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-12 mt-5 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <div class="count-box-row">
+                  <i class="bi bi-award" style="color: #ffb459">
+                  </i>
+                  <span data-purecounter-start="0" data-purecounter-end="{{certifications.count}}" data-purecounter-duration="1" class="purecounter">
+                  </span>
+                  <span class="items-list">
+                    Certificazioni
+                  </span>
+                </div>
+                <p>
+                  Certificazioni ottenute per diventare <strong>Data Engineer</strong> e <strong>Cloud Engineer</strong>, oltre a dei corsi di Fullstack. La più importante è la <strong>Associate Cloud Engineer</strong> di Google.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End content-->
+  </div>
+</section>

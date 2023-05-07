@@ -1,0 +1,40 @@
+{% load static %}
+<section id="certifications">
+  <div class="container">
+    <div class="section-title">
+      <span>
+        Certificazioni
+      </span>
+      <h2>
+        Certificazioni
+      </h2>
+    </div>
+    <div class="container">
+      <div class="row d-flex" id="div-certifications">
+        {% for c in certifications %} 
+          {% if c.is_active %}
+            <div class="d-flex flex-row card col-lg-7 p-0" id="card">
+              <div class="col-4">
+                <img src="{{c.badge.url}}" class="img-fluid rounded-start" alt="{{c.title}}" id="img-certification"/>
+              </div>
+              <div class="col-8 my-3" id="certificate">
+                {% if c.link %}
+                <a href="{{c.link}}" target="_blank">
+                {% endif %}
+                <h5 class="text-center">
+                  {{c.title}}
+                </h5>
+                {% if c.link %}
+                </a>
+                {% endif %}
+                <p class="description" id="card-description">
+                  {{c.description}}
+                </p>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

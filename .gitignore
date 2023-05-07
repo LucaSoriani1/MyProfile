@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.env
+static/app_profile/img/old/
+app_profile/static/app_profile/img/old/
+*.json
+server/
+todo.txt

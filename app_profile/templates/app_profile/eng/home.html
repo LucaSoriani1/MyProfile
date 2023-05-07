@@ -1,0 +1,44 @@
+{% load static %}
+<section id="home">
+    <div class="home-container">
+        {% with full_name=me.first_name|add:" "|add:me.last_name %}
+            <input type="hidden" id="fullName" name="fullName" value="{{ full_name }}">
+            <div class="random random1">
+                <p class="p-random">
+                    {% for char in full_name %}
+                        {% if char != " " %}
+                            <span class="nbr ltr">
+                                0
+                            </span>
+                        {% else %}
+                            <p class="p-random">
+                                &nbsp;
+                            </p>
+                        {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+        {% endwith %}
+        <input type="hidden" id="title" name="title" value="{{user.title}}">
+        <div class="random random2">
+            <p class="p-random">
+                {% for char in user.title%}
+                    {% if char != " " %}
+                        <span class="nbr ltr">
+                            0
+                        </span>
+                    {% else %}
+                        <p class="p-random">
+                            &nbsp;
+                        </p>
+                    {% endif %}
+                {% endfor %}
+            </p>
+        </div>
+        <a href="#about" class="btn-scroll scrollto" title="Scroll Down">
+            <i class="bx bx-chevron-down">
+            </i>
+        </a>
+    </div>
+</section>
+<!-- End Home -->

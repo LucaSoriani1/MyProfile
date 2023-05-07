@@ -1,0 +1,117 @@
+{% load static %}
+<!-- ================================
+Start Navigation Bar
+================================= -->
+<!-- Start Header -->
+<header id="header" class="fixed-top align-items-center header-transparent">
+  <nav class="navbar nav nav-fill d-flex justify-content-between" id="navbar">
+    <div class="navbar-logo">
+      <ul class="nav nav-item">
+        <li>
+          <a class="nav-link scrollto active logo-navbar-full" href="/#home">
+            <img
+              class="img-fluid img-thumbnail"
+              src="{% static 'app_profile/img/ls_icon.png' %}"
+              alt="Logo"
+              width="45"
+              height="45"
+              class="d-inline-block align-text-top"
+            />
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <ul class="nav-item">
+        <li>
+          <div class="navbar-logo-bar-mobile">
+            <a class="nav-link scrollto" href="/it/#home">
+              <img
+                class="img-fluid img-thumbnail align-text-top"
+                src="{% static 'app_profile/img/ls_icon.png' %}"
+                alt="Logo"
+                width="45"
+                height="45"
+              />
+            </a>
+          <div>
+        </li>  
+        <li>
+          <a class="nav-link scrollto" href="/it/#home">
+            Home
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/it/#about">
+            Su di me
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/it/#skills-list">
+            Skills
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/it/#resume">
+            Curriculum
+          </a>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/it/#certifications">
+            Certificazioni
+          </a>
+        </li>
+        <li class="dropdown" id="projects-pc-view">
+          <a class="nav-link scrollto" href="/it/#projects">
+            Progetti
+          </a>
+          <ul id="ul-dropdown">
+            <li id="dropdown" class="invisible-dropdown">
+              <a class="nav-link" href="/it/projects-details">
+                Tutti i progetti
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="list-nav-mobile">
+          <a class="nav-link scrollto" href="/it/#projects">
+            Progetti
+          </a>
+          <ul id="ul-nav-mobile">
+            <li>
+              <a class="nav-link" id="a-nav-mobile" href="/it/projects-details">
+                Tutti i progetti
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a class="nav-link scrollto" href="/it/#contact">
+            Contatti
+          </a>
+        </li>
+        <li>
+          <div class="navbar-language-bar">
+            <a role="button" onClick="changeLanguage()">
+              <img src="{% static 'app_profile/img/eng_flag.png' %}" height='30' width='30'>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="flag-languange">
+      <ul>
+        <li class="nav-item">
+          <a role="button" onClick="changeLanguage()">
+            <img src="{% static 'app_profile/img/eng_flag.png' %}" height='30' width='30'>
+          </a>
+        </li>
+      </ul>
+    </div>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav>
+</header>
+<!-- End Header -->
+<!-- ================================
+End Navigation Bar
+================================= -->

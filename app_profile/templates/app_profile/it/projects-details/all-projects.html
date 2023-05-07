@@ -1,0 +1,37 @@
+{% load static %}
+<section class="projects">
+    <div class="container">
+      {% for k, v in projects.items %}
+        <div class="row-projects">
+          <div class="section-title">
+            <span>{{k}}</span>
+            <h2>{{k}}</h2>
+          </div>
+          <div class="row projects-container">
+            {% for proj in v  %}
+              {% if forloop.counter <= 3 %}
+                <div class="col-lg-4 projects-item">
+              {% else %}
+                <div class="col-lg-4 projects-item project-show project-show-{{k}}" style="display:none">
+              {% endif %}        
+                  <a href='/it/projects-details/{{proj.id}}'>
+                    <div class="projects-img" id="projects-img">
+                      <img src="{{ proj.image.url }}" class="img-fluid" alt="{{ proj.name_it }}">
+                      <div class="projects-info" id="projects-info">
+                        <h4>{{proj.name_it}}</h4>
+                        <p>{{proj.filter_it}}</p>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+            {% endfor %}
+            {% if v|length > 3 %}
+              <div class="text-center d-flex justify-content-center">
+                <button class="btn btnPrimary show-more-button show-more-button-{{k}}" onClick="showMore('{{k}}')" style="display:none;"><div id="show-more-button-{{k}}">Mostra altro</div></button>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+</section>

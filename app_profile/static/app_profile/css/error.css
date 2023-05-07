@@ -1,0 +1,272 @@
+body{
+  margin-top: 60px;
+  height: calc(100vh - 207px - 60px);
+}
+
+.error-container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.error-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+.error-title-h1{
+  font-size: 70px;
+  font-weight: 600;
+}
+
+.error-image-minipig{
+  transform: scale(1.2);
+}
+
+.error-para-p{
+  font-size: 30px;
+  font-weight: 350;
+}
+
+
+@media (max-width:768px){
+  .error-title-h1{
+    font-size: 65px;
+  }
+}
+@media (max-width:400px){
+  .error-title-h1{
+    font-size: 60px;
+  }
+  .error-title-p{
+    font-size: 25px;
+  }
+}
+
+@media (max-width:320px){
+  .error-title-h1{
+    font-size: 40px;
+  }
+  .error-title-p{
+    font-size: 20px;
+  }
+}
+/* @media (max-width:1114px){
+  @media (max-height:705px){
+    .error-container{
+      flex-direction: row;
+      justify-content: center;
+    }
+}
+} */
+/* 
+.body-container-mobile{
+  display: none;
+}
+.body-container,
+.body-row {
+  width: 100%;
+  height: 100%;
+  margin-left: 0;
+  margin: 0;
+  padding-left: 0;
+}
+
+.body-container{
+  min-width: 100%
+}
+
+.message-body{
+  display: flex;
+  align-items: center;
+}
+
+.body-row{
+  width: 100%;
+}
+
+.minipig-col{
+  height: 100%;
+  padding-left: 0;
+}
+#minipig{
+  object-fit: contain;
+  object-position: right bottom;
+  margin-left: 0px;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+}
+
+.h1-error-page{
+  font-size: 70px;
+  font-weight: 700;
+}
+
+.p-error-page{
+  font-size: 25px;
+  margin-top: 70px;
+}
+
+.fixed-footer{
+left: 0;
+bottom: 0;
+width:100%
+}
+
+@media (max-width:1000px) {
+  .body-container{
+    display: none;
+  }  
+
+  .body-container-mobile{
+    display: block;
+    max-width: 100%;
+    height: 100%;
+    padding: 0;
+  }
+  .minipig-col{
+    padding-right: 0;
+  }
+  #minipig{
+    object-fit: contain;
+    object-position: left bottom;
+    margin-right: 0px;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    transform: rotateY(3.14rad);
+  }
+}
+
+@media (max-width:500px){
+  .h1-error-page{
+    font-size: 50px;
+  }
+}
+
+@media (max-width:800px){
+  .body-row{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  
+} */
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+#footer {
+  background: url("../img/footer-bg.jpg") top center no-repeat;
+  background-size: cover;
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  padding: 20px 0;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width:100%
+}
+
+
+
+#footer::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+#footer .container {
+  position: relative;
+}
+
+#footer h3 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #fff;
+  position: relative;
+  font-family: "Satisfy", serif;
+  padding: 0;
+  margin: 0 0 15px 0;
+}
+
+#footer p {
+  font-size: 15;
+  font-style: italic;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links {
+  margin: 0 0 40px 0;
+}
+
+#footer .social-links a {
+  font-size: 18px;
+  display: inline-block;
+  background: #ffb727;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+#footer .social-links a:hover {
+  background: #d18c03;
+  color: #fff;
+  text-decoration: none;
+}
+
+#footer .copyright {
+  margin: 0 0 5px 0;
+}
+
+#footer .credits {
+  font-size: 13px;
+}
+
+@media (max-width:991px) {
+  #footer {
+      margin-top: 20px;
+  }
+}
+
+html,body
+{
+    width: 100%;
+    overflow-x: hidden;
+}
+@media (max-width:500px) {
+  
+  body{
+    margin-top: 60px;
+    height: auto;
+  }
+  .error-container{
+    justify-content: flex-start;
+  }
+  
+  #footer {
+    background: url("../img/footer-bg.jpg") top center no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    padding: 20px 0;
+    position: fixed;
+  }
+}

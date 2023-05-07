@@ -1,0 +1,17 @@
+.random {
+    text-align: center;
+    color: aliceblue;
+}
+.random1 {
+    font-size: 8vw; /* imposta la dimensione del carattere al 8% della larghezza del viewport */
+    margin-bottom: 20px;
+}
+
+.random2{
+    font-size: 3.6vw; /* imposta la dimensione del carattere al 3.6% della larghezza del viewport */
+}
+
+
+.p-random{
+    display: inline;
+}

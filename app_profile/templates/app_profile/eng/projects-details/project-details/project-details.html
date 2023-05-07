@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <!-- Title page -->
+    <title>Luca Soriani - {{project.name}}</title>
+    
+    <meta name="description" content="Home page of personal profile of Luca Soriani. This a presentation of my work as Data Engineer and projects about Physics and Full Stack."/>
+    <meta name="keywords" content="Data Engineer Luca Soriani Python Machine Learning Full Stack Physics Profile Projects Quantum Computing"/>
+
+    <!-- Icon Page -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'app_profile/img/ls_icon.ico' %}"/>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Satisfy" rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+      <link type="text/css" href="{% static 'app_profile/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet"/>
+
+    <!-- CSS File -->
+      <link type="text/css" href="{% static 'app_profile/css/style.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/text.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/carusel-card.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/contact.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/footer.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/projects.css' %}" rel="stylesheet"/>
+      <link type="text/css" href="{% static 'app_profile/css/project.css' %}" rel="stylesheet"/>
+      
+      <!-- Fa fa icon -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+  </head>
+  <body>
+    <!-- ======= Header ======= -->
+    {% include 'app_profile/eng/partials/nav.html' %}
+    <main id="main">
+      <!-- ======= Breadcrumbs Section ======= -->
+      <section class="breadcrumbs">
+        <div class="container">
+          <div class="d-flex justify-content-between align-items-center">
+            <h2>{{project.name}}</h2>
+            <ol>
+              <li><a href="/">Home</a></li>
+              <li><a href="/projects-details">Progetti</a></li>
+              <li>{{project.name}}</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <!-- Breadcrumbs Section -->
+      <!-- ======= Projects Details Section ======= -->
+      <section id="project-details" class="projects-details">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="section-title">
+              <h2 style="font-size: 35px;">{{project.name}}</h2>
+            </div>
+            <div>
+              <div class="description-mobile">
+                <div class="cutoff-text">
+                  {% autoescape off %}
+                  {{project.description}}
+                  {% endautoescape %}
+                </div>
+                <input class="expand-button" type="checkbox">
+              </div>
+              <div class="col-lg-4 details-container">
+                <img class="image-project" src="{{project.image.url}}" alt="{{project.name}}">
+                <div class="project-info">
+                  <h3>Project Information</h3>
+                  <ul>
+                    <li>
+                      <strong>Category</strong>: {{project.filter}}
+                    </li>
+                    <li>
+                      <strong>Proeject Url</strong>: 
+                      <a href="{{project.url}}" class="github"> 
+                        <i class="bi bi-github"></i>
+                      </a>
+                    </li>
+                    <li>
+                      <strong>About</strong>: {{project.title}}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="description">
+                {% autoescape off %}
+                {{project.description}}
+                {% endautoescape %}
+              </div>
+            </di>
+          </div>
+        </div>
+      </section>
+      <!-- End Projects Details Section -->
+    </main>
+    <!-- End #main -->
+    <!-- ======= Footer ======= -->
+    {% include 'app_profile/eng/partials/footer.html' %}
+    <!-- End Footer -->
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+    <!-- Vendor JS Files -->
+    <script src="{% static 'app_profile/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/glightbox/js/glightbox.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/swiper/swiper-bundle.min.js' %}"></script>
+    <script src="{% static 'app_profile/vendor/waypoints/noframework.waypoints.js' %}"></script>
+
+    <!-- JS File -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/physics']},
+        tex: {packages: {'[+]': ['physics']},
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+    </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script src="{% static 'app_profile/js/main.js' %}"></script>
+    <script src="{% static 'app_profile/js/single_project_view.js' %}"></script>
+  </body>
+</html>

@@ -1,0 +1,110 @@
+{% load static %}
+<section id="skills-list" class="about">
+  <div class="container">
+    <div class="row" id="skills-list">
+      <div class="section-title" id="section-title-skills">
+        <span>
+          Skills
+        </span>
+        <h2>
+          Skills
+        </h2>
+      </div>
+      <div class="skills-content ps-lg-4" id="skills-mobile-view">
+        {% for sk in skill_language %}
+          <div class="d-flex flex-row">
+            <div class="me-3" id="img-skills">
+              <img class="p-2 mt-0" src="{{sk.image.url}}" alt="{{sk.name}}" width="75" height="75"/>
+            </div>
+            <div class="flex-grow-1">
+              <div class="progress mb-3">
+                <div class="d-flex flex-row align-items-center" id="skills-row">
+                  <span class="skill p-2">
+                    {{sk.name}}
+                  </span>
+                  <i class="val ms-auto p-2">
+                    {{sk.score}}%
+                  </i>
+                </div>
+                <div class="progress-bar-wrap">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="{{sk.score}}" aria-valuemin="0" aria-valuemax="100">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="container tools-container">
+    <div class="row row-tools">
+      <div class="skills-content col-lg-4 container-tool" id="skills-mobile-view">
+        <div class="section-title" id="section-title-skills" style="width:100%">
+          <span>
+            Cloud
+          </span>
+          <h2>
+            Cloud
+          </h2>
+        </div>
+        <div class="tools-sub-container">
+          {% for sk in skill_cloud%}
+            <div class="d-flex flex-row tools">
+              <span class="skill p-2 tool-span">
+                {{sk.name}}
+              </span>
+              <div class="me-3" id="img-skills">
+                <img class="p-2 mt-0 img-tools" src="{{sk.image.url}}" alt="{{sk.name}}" width="75" height="75"/>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="skills-content col-lg-4 container-tool" id="skills-mobile-view">
+        <div class="section-title" id="section-title-skills" style="width:100%">
+          <span>
+            Python
+          </span>
+          <h2>
+            Python
+          </h2>
+        </div>
+        <div class="tools-sub-container">
+          {% for sk in skill_python %}
+            <div class="d-flex flex-row tools">
+              <span class="skill p-2 tool-span">
+                {{sk.name}}
+              </span>
+              <div class="me-3" id="img-skills">
+                <img class="p-2 mt-0 img-tools" src="{{sk.image.url}}" alt="{{sk.name}}" width="75" height="75"/>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="skills-content col-lg-4 container-tool" id="skills-mobile-view">
+        <div class="section-title" id="section-title-skills" style="width:100%">
+          <span>
+            Tools
+          </span>
+          <h2>
+            Tools
+          </h2>
+        </div>
+        <div class="tools-sub-container">
+          {% for sk in skill_other %}
+            <div class="d-flex flex-row tools">
+              <span class="skill p-2 tool-span">
+                {{sk.name}}
+              </span>
+              <div class="me-3" id="img-skills">
+                <img class="p-2 mt-0 img-tools" src="{{sk.image.url}}" alt="{{sk.name}}" width="75" height="75"/>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

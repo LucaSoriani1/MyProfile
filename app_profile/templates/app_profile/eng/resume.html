@@ -1,0 +1,112 @@
+{% load static %}
+<section id="resume" class="resume section-resume" >
+  <div class="container">
+    <div class="section-title">
+      <span>
+        My Resume
+      </span>
+      <h2>
+        My Resume
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3 class="resume-title">
+          Education
+        </h3>
+        <div class="resume-item">
+          <h4>
+            Master degree in Physics of Matter
+          </h4>
+          <h5>
+            2020 - In progress
+          </h5>
+          <p>
+            <em>
+              University of Padua, Padova, Italy
+            </em>
+          </p>
+          <p>
+            This Master Degree allows me to follow my passion for Quantum Information &amp; Computation. Some of the classes taken are Quantum Information and Computation, Statistical Mechanics, Structure of Matter and Many-body Theory.
+          </p>
+        </div>
+        <div class="resume-item">
+          <h4>
+            Bachelor degree in Physics
+          </h4>
+          <h5>
+            2015 - 2019
+          </h5>
+          <p>
+            <em>
+              University of Padua, Padova, Italy
+            </em>
+          </p>
+          <p>
+            This Bachelor's degree has provided me with a solid knowledge of all basic mathematics tools and physics, from classical mechanics to quantum mechanics/relativistic mechanics. The dissertation is based on the study of the characteristics of a quantum simulator with a focus on Hubbard model.
+            <ul>
+              <li>
+                Thesis: <a href="https://thesis.unipd.it/handle/20.500.12608/22637">"Ultracold atoms trapped in optical lattice"</a>
+              </li>
+              <li>
+                Degree grade: 90/110
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3 class="resume-title">
+          Professional Experience
+        </h3>
+        <div class="resume-item">
+          <h4>
+            Cloud Engineer - Apprentice
+          </h4>
+          <h5>
+            2022 - Present
+          </h5>
+          <p>
+            <em>
+              Accenture s.p.a.
+            </em>
+          </p>
+          <p>
+            This work allowed me to get to know and manage the resources on the Google Cloud Platform. The professional growth lead me to manage an entire big data export flow, based on extractions via Cloud BigQuery and pipeline organisation via Cloud Composer (Apache Airflow). 
+            <ul>
+              <li>
+                Data analysis on Google BigQuery
+              </li>
+              <li>
+                Integration of Apache Airflow pipeline
+              </li>
+              <li>
+                Writing and presentation of service documentation
+              </li>
+              <li>
+                Usage of services such as Bigquery, Cloud function, Cloud Scheduler, Pub/sub and Cloud Composer
+              </li>
+              <li>
+                Usage of Git, Bitbucket and Terraform to manage the project resources
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bannerBtnCol mt-4">
+    <div class="row row-button-download">
+      <div class="col-auto mx-5 button-download-up">
+        <a download href="{{me.userprofile.cv_eng.url}}" class="btn btnPrimary">
+          English Resume
+        </a>
+      </div>
+      <div class="col-auto mx-5 button-download">
+        <a download href="{{me.userprofile.cv_it.url}}" class="btn btnPrimary">
+          Italian Resume
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

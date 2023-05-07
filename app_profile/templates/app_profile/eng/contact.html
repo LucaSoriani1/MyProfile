@@ -1,0 +1,133 @@
+{% load static %}
+<section id="contact" class="contact">
+  <div class="container">
+    <div class="section-title">
+      <span>
+        Contact Me
+      </span>
+      <h2>
+        Contact Me
+      </h2>
+    </div>
+    <div class="row" id="contact-container">
+      <div class="col-lg-6">
+        <div class="row" id="social-profiles">
+          <div class="col-md-12">
+            <div class="info-box">
+              <i class="bx bx-share-alt">
+              </i>
+              <h3>
+                Social Profiles
+              </h3>
+              <div class="social-links">
+                <a href="https://wa.me/3894782250" class="whastapp" target="_blank">
+                  <i class="bi bi-whatsapp">
+                  </i>
+                </a>
+                <a href="https://github.com/LucaSoriani1" class="github" target="_blank">
+                  <i class="bi bi-github">
+                  </i>
+                </a>
+                <a href="https://join.skype.com/invite/NuBMa34pguj6" class="google-plus" target="_blank">
+                  <i class="bi bi-skype">
+                  </i>
+                </a>
+                <a href="https://www.linkedin.com/in/luca-soriani-a32a92214/" class="linkedin" target="_blank">
+                  <i class="bi bi-linkedin">
+                  </i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class= "row" id="social-profiles-contact">
+            <div class="col-md-6">
+             <div class="info-box mt-4">
+               <i class="bx bx-envelope">
+               </i>
+                <h3>
+                  Email Me
+                </h3>
+                <p mailto="luca_soriani@hotmail.com">
+                  <a href="mailto:{{me.email}}">
+                    {{me.email}}
+                  </a>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="info-box mt-4">
+              <i class="bx bx-phone-call">
+              </i>
+              <h3>
+                Call Me
+              </h3>
+              <p>
+                <a href="tel:+393894782250">
+                  {{user.phone}}
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <form action="" method="post" class="php-email-form needs-validation" id = "task-form" novalidate>
+        <div class="row">
+          <div class="col-md-6 form-group">
+            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required/>
+            <div class="invalid-feedback">
+              Please, provide a valid name.
+            </div>
+          </div>
+          <div class="col-md-6 form-group mt-3 mt-md-0">
+            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required/>
+            <div class="invalid-feedback">
+              Plase, provide a valid email address.
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required/>
+          <div class="invalid-feedback">
+            Please, provide the subject of the message.
+          </div>
+        </div>
+        <div class="form-group mt-3">
+          <textarea class="form-control" name="message" rows="6" placeholder="Message" id="message" required></textarea>
+          <div class="invalid-feedback">
+            Please, provide the message.
+          </div>
+        </div>
+        <div class="button-loader">
+          <div class="text-center" id="submit-button-contact">
+            <button type="submit" value="Submit">
+              Send Message
+            </button>
+          </div>
+          <div id="loader" style="display:none; text-align:center;">
+            <img src="{% static 'app_profile/gif/loader.gif' %}" alt="loader">
+          </div>
+            {% csrf_token %}
+        </div>
+      </form>
+      <div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+              {% comment %} <img src="..." class="rounded me-2" alt="..."> {% endcomment %}
+              <strong class="me-auto">
+                Thank you for getting in touch with me
+              </strong>
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
+              </button>
+            </div>
+            <div class="toast-body">
+              The email was sent successfully!<br>I will try to respond as soon as possible.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

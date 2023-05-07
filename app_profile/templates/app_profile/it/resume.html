@@ -1,0 +1,112 @@
+{% load static %}
+<section id="resume" class="resume section-resume" >
+  <div class="container">
+    <div class="section-title">
+      <span>
+        Curriculum
+      </span>
+      <h2>
+        Curriculum
+      </h2>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <h3 class="resume-title">
+          Istruzione
+        </h3>
+        <div class="resume-item">
+          <h4>
+            Laurea Magistrale in Physics of Matter
+          </h4>
+          <h5>
+            2020 - In corso
+          </h5>
+          <p>
+            <em>
+              Università di Padova, Padova, Italia
+            </em>
+          </p>
+          <p>
+            Questa laurea magistrale mi permette di seguire la mia passione per la Quantum Information &amp; Computation. Alcuni dei corsi seguiti sono Quantum Information and Computation, Statistical Mechanics, Structure of Matter e Many-body Theory.
+          </p>
+        </div>
+        <div class="resume-item">
+          <h4>
+            Laurea in Fisica
+          </h4>
+          <h5>
+            2015 - 2019
+          </h5>
+          <p>
+            <em>
+              Università di Padova, Padova, Italia
+            </em>
+          </p>
+          <p>
+            Questa laurea mi ha fornito una solida conoscenza sulla matematica e la fisica di base, dalla meccanica classica alla meccanica quantistica/relativistica. La tesi di laurea è basata sullo studio di un simulatore quantistico con particolare attenzione al Hubbard's Model.
+            <ul>
+              <li>
+                Tesi: <a href="https://thesis.unipd.it/handle/20.500.12608/22637">"Ultracold atoms trapped in optical lattice"</a>
+              </li>
+              <li>
+                Voto di laurea: 90/110
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <h3 class="resume-title">
+          Esperienze professionali
+        </h3>
+        <div class="resume-item">
+          <h4>
+            Cloud Engineer - Apprendistato
+          </h4>
+          <h5>
+            2022 - In corso
+          </h5>
+          <p>
+            <em>
+              Accenture s.p.a.
+            </em>
+          </p>
+          <p>
+            Questo lavoro mi ha permesso di conoscere e gestire le risorse sulla piattaforma Google Cloud. La crescita professionale mi ha portato a gestire l'intero flusso di esportazione dei big data, basato sull'estrazione tramite Cloud BigQuery e sull'organizzazione delle pipeline tramite Cloud Composer (Apache Airflow).
+            <ul>
+              <li>
+                Data analysis su Google BigQuery
+              </li>
+              <li>
+                Integrazione di pipeline Apache Airflow
+              </li>
+              <li>
+                Scritto e presentato la documentazione del progetto
+              </li>
+              <li>
+                Usato servizi GCP come Bigquery, Cloud function, Cloud Scheduler, Pub/sub e Cloud Composer
+              </li>
+              <li>
+                Usato Git, Bitbucket e Terraform per gestire le risorse del progetto
+              </li>
+            </ul>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bannerBtnCol mt-4">
+    <div class="row row-button-download">
+      <div class="col-auto mx-5 button-download-up">
+        <a download href="{{me.userprofile.cv_eng.url}}" class="btn btnPrimary">
+          Curriculum in Inglese
+        </a>
+      </div>
+      <div class="col-auto mx-5 button-download">
+        <a download href="{{me.userprofile.cv_it.url}}" class="btn btnPrimary">
+          Curriculum in Italiano
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

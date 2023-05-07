@@ -1,0 +1,52 @@
+{% load static %}
+<section id="projects" class="projects">
+  <div class="container">
+    <div class="section-title">
+      <span>
+        Projects
+      </span>
+      <h2>
+        Projects
+      </h2>
+    </div>
+    <ul id="projects-flters" class="d-flex justify-content-center">
+      <li data-filter="*" class="filter-active">
+        All
+      </li>
+      {% for cat in filter %}
+        <li data-filter=".filter-{{ cat }}">
+          {{ cat }}
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="row projects-container">
+      {% for proj in projects  %}
+          <div class="col-lg-4 projects-item filter-{{ proj.filter }}">
+            <a href="{{proj.url}}">
+            <div class="projects-img">
+              <img src="{{ proj.image.url }}" class="img-fluid" alt="{{ proj.name }}">
+              <div class="projects-info">
+                <h4>
+                  {{proj.name}}
+                </h4>
+                <p>
+                  {{proj.filter}}
+                </p>
+                {% comment %} <a href="{{ proj.url }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
+              </div>
+            </div>
+          </a>  
+          </div>
+      {% endfor %}
+    </div>
+    <div class="bannerBtnCol mt-4">
+      <div class="row">
+        <div class="col-auto mx-6">
+          <a href="/projects-details" class="btn btnPrimary">
+            View all projects
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
