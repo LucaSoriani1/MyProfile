@@ -263,21 +263,10 @@
 
 function changeLanguage(){
   var url = window.location.href
-  if (url.includes('/it/projects-details/')) {
-    window.location.replace(url.replace('/it', ''));
-  } else if (url.endsWith('/it/') || url.includes('/it/#')) {
-    if (url.includes('#')) {
-      url = url.slice(0, url.indexOf("#"))
-    }
-    window.location.replace(url.replace('/it', ''));
-  } else if (url.includes('/projects-details/')){
-    window.location.replace(url.replace('/projects-details/', '/it/projects-details/'));
+  if (url.includes('.com/it/')) {
+    window.location.replace(url.replace('.com/it/', '.com/'));
   } else {
-    if (url.includes('/#')){
-      url = url.slice(0, url.indexOf('#'))
-    }
-    url = url + 'it/'
-    window.location.replace(url)
+    window.location.replace(url.replace(".com/", ".com/it/"))
   }
 };
 
