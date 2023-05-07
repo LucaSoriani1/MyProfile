@@ -28,23 +28,20 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
-
+DEBUG = os.environ.get('DEBUG')
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('DEBUG') == 'True':
-    DEBUG = True
+if DEBUG == 'True':
+    DEBUG=True
     ALLOWED_HOSTS = ['*']
     CORS_ORIGIN_ALLOW_ALL = True
 else:
-    DEBUG = False
     ALLOWED_HOSTS = ['www.lucasoriani.com', 'lucasoriani.com', '181.215.68.32', 'localhost', '127.0.0.1']
+    DEBUG = False
     CORS_ORIGIN_WHITELIST = (
         'https://www.lucasoriani.com',
         'https://lucasoriani.com'
     )
     CSRF_TRUSTED_ORIGINS=['https://*.lucasoriani.com']
-
-
-ALLOWED_HOSTS = []
 
 
 # Application definition
