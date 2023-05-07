@@ -212,6 +212,7 @@ CSP_STYLE_SRC = ("'self'",
 CSP_SCRIPT_SRC = ("'self'",
     "cdnjs.cloudflare.com",
     "cdn.jsdelivr.net",
+    "polyfill.io",
     "'unsafe-inline'",)
 
 # images from our domain and other domains
