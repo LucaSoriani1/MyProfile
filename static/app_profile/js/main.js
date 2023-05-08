@@ -263,9 +263,16 @@
 
 function changeLanguage(){
   var url = window.location.href
+  console.log(url)
   if (url.includes('.com/it/')) {
+    if (url.includes('#')){
+      url = url.slice(0, url.indexOf('#'));
+    }
     window.location.replace(url.replace('.com/it/', '.com/'));
   } else {
+    if (url.includes('#')){
+      url = url.slice(0, url.indexOf('#'));
+    }
     window.location.replace(url.replace(".com/", ".com/it/"))
   }
 };
