@@ -22,7 +22,7 @@
     <div class="row projects-container">
       {% for proj in projects  %}
           <div class="col-lg-4 projects-item filter-{{ proj.filter_it }}">
-            <a href="{{proj.url}}">
+            <a href="/it/projects-details/{{proj.id}}">
             <div class="projects-img">
               <img src="{{ proj.image.url }}" class="img-fluid" alt="{{ proj.name_it }}">
               <div class="projects-info">
@@ -32,7 +32,6 @@
                 <p>
                   {{proj.filter_it}}
                 </p>
-                {% comment %} <a href="{{ proj.url }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a> {% endcomment %}
               </div>
             </div>
           </a>  
