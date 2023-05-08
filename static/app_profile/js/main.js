@@ -273,7 +273,6 @@ function changeLanguage(){
 function UrlExists(url) {
   var http = new XMLHttpRequest();
   http.open('HEAD', url, false);
-  console.log(url)
   http.send();
   if (http.status != 404 && http.status != 500)
       return true;
