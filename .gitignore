@@ -6,3 +6,4 @@ app_profile/static/app_profile/img/old/
 *.json
 server/
 todo.txt
+config/gunicorn
