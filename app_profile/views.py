@@ -25,9 +25,9 @@ def error404(request, exception):
         url_check = url
     
     if '/it/' in url:
-        return render(request, 'app_profile/it/error/404.html', status)
+        return render(request, 'app_profile/it/error/404.html', status=status)
     else:
-        return render(request, 'app_profile/eng/error/404.html', status)
+        return render(request, 'app_profile/eng/error/404.html', status=status)
 
 def error500(request):
 
@@ -42,9 +42,9 @@ def error500(request):
         url_check = url
     
     if '/it/' in url:
-        return render(request, 'app_profile/it/error/500.html', status)
+        return render(request, 'app_profile/it/error/500.html', status=status)
     else:
-        return render(request, 'app_profile/eng/error/500.html', status)
+        return render(request, 'app_profile/eng/error/500.html', status=status)
 
 def index_eng(request):
 
