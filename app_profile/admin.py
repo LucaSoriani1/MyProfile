@@ -7,7 +7,7 @@ from . models import (
     ContactForm,
     Visitors,
     Visualization,
-    VisualizationForIp,
+    VisualizationForIpDetail,
     )
 
 # Register your models here.
@@ -34,21 +34,14 @@ class ContactFormAdmin(admin.ModelAdmin):
 
 @admin.register(Visitors)
 class VisitorsAdmin(admin.ModelAdmin):
-     list_display = ('ip_address', 'location', 'number_of_visit')
-
-@admin.register(VisualizationForIp)
-class VisualizationForIpAdmin(admin.ModelAdmin):
-    list_display = ('get_ip', 'get_location', 'timestamp')
-    
-    @admin.display(description='Ip')
-    def get_ip(self, obj):
-        return obj.ip.ip_address
-     
-    @admin.display(description='Location')
-    def get_location(self, obj):
-        return obj.ip.location
-     
+     list_display = ('ip_address', 'location', 'path', 'number_of_visit', 'date_of_visit')
+     search_fields = ['ip_address', 'location']     
 
 @admin.register(Visualization)
 class VisualizationAdmin(admin.ModelAdmin):
      list_display=('year', 'month', 'tot_visualization')
+
+@admin.register(VisualizationForIpDetail)
+class VisualizationForIpDetailAdmin(admin.ModelAdmin):
+    list_display=('ip', 'timestamp', 'path')
+    search_fields = ['ip']

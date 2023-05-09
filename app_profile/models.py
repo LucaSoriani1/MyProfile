@@ -113,17 +113,9 @@ class Visitors(models.Model):
 
     date_of_visit = models.DateField(blank=True, null=True)
     number_of_visit = models.IntegerField(default=0, blank=True, null=True)
-    ip_address = models.CharField(max_length=200, blank=True, null=True)
+    ip_address = models.CharField(max_length=200, blank=True, null=True, unique=True)
     location = models.CharField(max_length=200, blank=True, null=True)
-
-
-class VisualizationForIp(models.Model):
-    class Meta:
-        verbose_name_plural = 'Visualizations for IP'
-        verbose_name = 'Visualization for IP'
-    
-    ip = models.ForeignKey(Visitors, on_delete=models.CASCADE)
-    timestamp = models.DateTimeField(blank=True, null=True)
+    path = models.TextField(blank=True, null=True)
 
 class Visualization(models.Model):
 
@@ -131,7 +123,17 @@ class Visualization(models.Model):
         verbose_name_plural = 'Visualizations'
         verbose_name = 'Visualization'
         ordering = ["year", "month"]
+        unique_together = ('year', 'month')
 
     month = models.IntegerField(blank=True, null=True)
     year = models.IntegerField(blank=True, null=True)
     tot_visualization = models.IntegerField(default=0, blank=True, null=True)
+
+class VisualizationForIpDetail(models.Model):
+    class Meta:
+        verbose_name_plural = 'Visualizations for IP'
+        verbose_name = 'Visualization for IP'
+    
+    ip = models.CharField(max_length=100, blank=True, null=True)
+    timestamp = models.DateTimeField(blank=True, null=True)
+    path=models.CharField(max_length=200, blank=True, null=True)

@@ -256,6 +256,12 @@ h6 {
   letter-spacing: 1px;
 }
 
+#projects-pc-view{
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
 .navbar .dropdown ul a i {
   font-size: 12px;
 }

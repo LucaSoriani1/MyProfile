@@ -7,3 +7,4 @@ app_profile/static/app_profile/img/old/
 server/
 todo.txt
 config/gunicorn
+media/badges/udemy.png
