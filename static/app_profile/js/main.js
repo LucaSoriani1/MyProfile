@@ -263,7 +263,7 @@
 
 function changeLanguage(){
   var url = window.location.href
-  console.log(url)
+  
   if (url.includes('.com/it/')) {
     if (url.includes('#')){
       url = url.slice(0, url.indexOf('#'));

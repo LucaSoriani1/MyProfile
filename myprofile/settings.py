@@ -45,6 +45,15 @@ else:
 
 
 # Application definition
+REST_FRAMEWORK = {
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle'
+    ],
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '3/day'
+    }
+}
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -194,10 +203,6 @@ if not DEBUG:
         "payment": [],
         "usb": [],
     }
-
-
-
-
 
 # default source as self
 CSP_DEFAULT_SRC = ("'self'", )
