@@ -65,12 +65,14 @@ INSTALLED_APPS = [
     'app_profile',
     'corsheaders',
     'django_dump_load_utf8',
+    "tracking"
 ]
 
 MIDDLEWARE = [
     'csp.middleware.CSPMiddleware',
     'django.middleware.security.SecurityMiddleware',
     "django_permissions_policy.PermissionsPolicyMiddleware",
+    'tracking.middleware.VisitorTrackingMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -171,6 +173,26 @@ EMAIL_HOST_USER=os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD=os.environ.get("EMAIL_HOST_PASSWORD")
 EMAIL_PORT=os.environ.get("EMAIL_PORT")
 EMAIL_USE_TLS = bool(os.environ.get("EMAIL_USE_TLS"))
+
+TRACK_PAGEVIEWS = True
+TRACK_SUPERUSERS = False
+TRACK_REFERER = True
+
+TRACK_IGNORE_URLS = [
+    r'^www\.lucasoriani\.com/static/.*',
+    r'^lucasoriani\.com/static/.*',
+    r'^www\.lucasoriani\.com/media/.*',
+    r'^lucasoriani\.com/media/.*',
+    r'^/static/.*',
+    r'^/media/.*',
+]
+
+
+
+
+
+
+
 
 if not DEBUG:
     CSRF_COOKIE_HTTPONLY = True
