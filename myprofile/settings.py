@@ -74,6 +74,7 @@ MIDDLEWARE = [
     "django_permissions_policy.PermissionsPolicyMiddleware",
     'tracking.middleware.VisitorTrackingMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -83,6 +84,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'myprofile.urls'
+
+SESSION_EXPIRE_SECONDS = 1800
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
 TEMPLATES = [
     {
@@ -186,13 +190,6 @@ TRACK_IGNORE_URLS = [
     r'^/static/.*',
     r'^/media/.*',
 ]
-
-
-
-
-
-
-
 
 if not DEBUG:
     CSRF_COOKIE_HTTPONLY = True
