@@ -1,5 +1,5 @@
 function handleSubmit(event) {
-    event.preventDefault();
+  event.preventDefault();
     if (checkForm()) {
         clearValidation();
       sendPostForm(event);
@@ -58,12 +58,12 @@ function checkForm() {
     };
 
 function showLoader() {
-    document.getElementById("submit-button-contact").style.display = "none";
-    document.getElementById("loader").style.display = "block";
+  document.getElementById("submit-button-contact").style.display = "none";
+  document.getElementById("loader").style.display = "block";
 };
 
 function hideLoader() {
-    document.getElementById("submit-button-contact").style.display = "block";
+  document.getElementById("submit-button-contact").style.display = "block";
     document.getElementById("loader").style.display = "none";
 };
 
