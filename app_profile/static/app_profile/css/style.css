@@ -560,7 +560,7 @@ section {
 
 @media (max-width:575px) {
   .section-title h2 {
-    font-size: 28px;
+    font-size: 28px !important;
     margin-bottom: 15px;
   }
 

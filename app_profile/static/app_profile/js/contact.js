@@ -12,9 +12,9 @@ function handleSubmit(event) {
   form.addEventListener('submit', handleSubmit);
 
 function checkForm() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var subject = document.getElementById("subject").value;
+    var name = document.getElementById("id_name").value;
+    var email = document.getElementById("id_email").value;
+    var subject = document.getElementById("id_subject").value;
     var message = document.getElementById("message").value;
   
     if (name === "" || email === "" || subject === "" || message === "") {
@@ -32,9 +32,9 @@ function checkForm() {
   function sendPostForm(event) {
     event.preventDefault();
     var form = document.getElementById("task-form");
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var subject = document.getElementById("subject").value;
+    var name = document.getElementById("id_name").value;
+    var email = document.getElementById("id_email").value;
+    var subject = document.getElementById("id_subject").value;
     var message = document.getElementById("message").value;
 
     showLoader();
@@ -46,15 +46,16 @@ function checkForm() {
     fd.append('csrfmiddlewaretoken', $('input[name=csrfmiddlewaretoken]').val());          
     form.reset();
     axios.post('/', fd)
-        .then(function(resp){
+        .then(function(){
             hideLoader();
-            toastTrigger(resp.data);
+            toastTrigger("success");
         })
-        .catch(function(err){
-            hideLoader();
-            toastTrigger(err.data);
-        });
-};
+        .catch(function(error){
+          console.warn = () => {};
+          hideLoader();
+          toastTrigger(error.response.data.status);
+          });
+    };
 
 function showLoader() {
     document.getElementById("submit-button-contact").style.display = "none";
@@ -75,11 +76,16 @@ function requiredFieldForm() {
       }, false);
     } 
   
-function toastTrigger(data) {
-    const toastLiveExample = document.getElementById('liveToast');
-    const toast = new bootstrap.Toast(toastLiveExample);
-    toast.show();
-};
+function toastTrigger(status) {
+  let toastLiveExample = document.getElementById('liveToast');
+  if (status=="invalid"){
+    toastLiveExample = document.getElementById('liveToastWarning');
+  } else if (status=="error") {
+    toastLiveExample = document.getElementById('liveToastError');
+  }
+  const toast = new bootstrap.Toast(toastLiveExample);
+  toast.show();
+}
 
 function clearValidation() {
     const forms = document.querySelectorAll('.needs-validation');

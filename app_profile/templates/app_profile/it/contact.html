@@ -72,29 +72,30 @@
       </div>
     </div>
     <div class="col-lg-6">
-      <form action="" method="post" class="php-email-form needs-validation" id = "task-form" novalidate>
+      <form method="post" class="php-email-form needs-validation" id = "task-form" novalidate>
+        {% csrf_token %}
         <div class="row">
           <div class="col-md-6 form-group">
-            <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required/>
+            {{form.name}}
             <div class="invalid-feedback">
                 Per favore, fornisci un nome.
             </div>
           </div>
           <div class="col-md-6 form-group mt-3 mt-md-0">
-            <input type="email" class="form-control" name="email" id="email" placeholder="Email" required/>
+            {{form.email}}
             <div class="invalid-feedback">
                 Per favore, fornisci un'email valida.
             </div>
           </div>
         </div>
         <div class="form-group mt-3">
-          <input type="text" class="form-control" name="subject" id="subject" placeholder="Oggetto" required/>
+          {{form.subject}}
           <div class="invalid-feedback">
             Per favore, fornisci l'oggetto del messaggio.
           </div>
         </div>
         <div class="form-group mt-3">
-          <textarea class="form-control" name="message" rows="6" placeholder="Messaggio" id="message" required style="resize:none;"></textarea>
+          {{form.message}}
           <div class="invalid-feedback">
               Per favore, fornisci il messaggio.
           </div>
@@ -108,21 +109,42 @@
           <div id="loader" style="display:none; text-align:center;">
             <img src="{% static 'app_profile/gif/loader.gif' %}" alt="loader">
           </div>
-            {% csrf_token %}
         </div>
       </form>
       <div>
         <div class="toast-container position-fixed bottom-0 end-0 p-3">
           <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
+            <div class="toast-header" id="toast-header">
               <strong class="me-auto">
                 Grazie per avermi contattato
               </strong>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close">
-              </button>
             </div>
             <div class="toast-body">
-              L'email è stata inviata con successo! <br> Cercherò di rispondere quanto prima. 
+              L'email è stata inviata con successo! <br>Risponderò il prima possibile. 
+            </div>
+          </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div id="liveToastError" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header toast-header-error" id="toast-header">
+              <strong class="me-auto" id>
+                Ops... Sembra che qualcosa non vada!
+              </strong>
+            </div>
+            <div class="toast-body toast-body-error">
+              Qualcosa è andato storto, il messaggio non è stato inviato. <br> Perché non provi a conttattarmi tramite l'email? 
+            </div>
+          </div>
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3">
+          <div id="liveToastWarning" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header toast-header-warning" id="toast-header">
+              <strong class="me-auto" id>
+                Sembra che i campi inseriti non siano corretti.
+              </strong>
+            </div>
+            <div class="toast-body toast-body-error">
+              Per favore, fornisci dei campi validi!
             </div>
           </div>
         </div>

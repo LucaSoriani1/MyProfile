@@ -14,7 +14,7 @@
               {% else %}
                 <div class="col-lg-4 projects-item project-show project-show-{{k}}" style="display:none">
               {% endif %}        
-                  <a href='/projects-details/{{proj.id}}'>
+                  <a href="{% url 'app_profile:eng-project-detail' proj.page_name%}">
                     <div class="projects-img" id="projects-img">
                       <img src="{{ proj.image.url }}" class="img-fluid" alt="{{ proj.name }}">
                       <div class="projects-info" id="projects-info">

@@ -20,7 +20,8 @@ class Skill(models.Model):
     show = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.name
+
+        return f"{self.name}, {self.score}"
     
 class UserProfile(models.Model):
 
@@ -63,10 +64,10 @@ class Project(models.Model):
     url = models.CharField(max_length=200, blank=True, null=True)
     image = models.ImageField(blank=True, null=True, upload_to="projects")
     show = models.BooleanField(default=True)
+    page_name = models.CharField(max_length=40, blank=True, null=True)
 
     def __str__(self):
-        return self.name
-    
+        return f"{self.name}, {self.category}, {self.page_name}"   
 
 class Certificate(models.Model):
 
@@ -95,14 +96,29 @@ class ContactForm(models.Model):
         ordering = ["timestamp"]
     
     timestamp = models.DateTimeField(auto_now_add=True)
-    name = models.CharField(verbose_name="Name", max_length=100)
-    subject = models.CharField(max_length=200)
+    name = models.CharField(verbose_name="Full Name", max_length=100)
+    subject = models.CharField(verbose_name="Subject", max_length=200)
     email = models.EmailField(verbose_name="Email")
     message = models.TextField(verbose_name="Message")
 
     def __str__(self):
-        return f'{self.name} {self.email}'
+        return f'{self.name} {self.email}'   
+
+class ContactItForm(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Contact Profiles'
+        verbose_name = 'Contact Profile'
+        ordering = ["timestamp"]
     
+    timestamp = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(verbose_name="Nome e Cognome", max_length=100)
+    subject = models.CharField(verbose_name="Oggetto", max_length=200)
+    email = models.EmailField(verbose_name="Email")
+    message = models.TextField(verbose_name="Messaggio")
+
+    def __str__(self):
+        return f'{self.name} {self.email}'   
 
 class Visitors(models.Model):
 

@@ -1,36 +1,31 @@
 from .models import (
-    ContactForm,
     Visitors,
     Visualization,
     VisualizationForIpDetail
 )
+
 from django.core.mail import send_mail
 from django.conf import settings
 from datetime import date
 from ip2geotools.databases.noncommercial import DbIpCity
 from django.utils import timezone
 
-def get_contact(request):
+def get_contact(form):
 
-    contact = ContactForm()
-    contact.name = request.POST.get("name")
-    contact.email = request.POST.get("email")
-    contact.subject = request.POST.get('subject')
-    contact.message = request.POST.get('message')
+    name = form.cleaned_data["name"]
+    email = form.cleaned_data["email"]
+    subject = form.cleaned_data['subject']
+    message = form.cleaned_data['message']
 
-    email_body = f"Email: {contact.email}\n\nFrom: {contact.name}\n\n\nMessage:\n {contact.message}"
+    email_body = f"Email: {email}\n\nFrom: {name}\n\n\nMessage:\n {message}"
 
-    try:
-        send_mail(
-                contact.subject, 
-                email_body,
-                settings.EMAIL_HOST_USER,            
-                [settings.EMAIL_HOST_USER]
-            )
-        contact.save()
-        return True
-    except:
-        return False
+    send_mail(
+            subject, 
+            email_body,
+            settings.EMAIL_HOST_USER,            
+            [settings.EMAIL_HOST_USER]
+        )
+    form.save()
     
 
 def get_visualization(request, status=200):

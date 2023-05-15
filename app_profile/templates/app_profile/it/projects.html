@@ -22,7 +22,7 @@
     <div class="row projects-container">
       {% for proj in projects  %}
           <div class="col-lg-4 projects-item filter-{{ proj.filter_it }}">
-            <a href="/it/projects-details/{{proj.id}}">
+            <a href="{% url 'app_profile:it-project-detail' proj.page_name%}">
             <div class="projects-img">
               <img src="{{ proj.image.url }}" class="img-fluid" alt="{{ proj.name_it }}">
               <div class="projects-info">
@@ -41,7 +41,7 @@
     <div class="bannerBtnCol mt-4">
       <div class="row">
         <div class="col-auto mx-6">
-          <a href="/it/projects-details" class="btn btnPrimary">
+          <a href="{% url 'app_profile:it-projects-details' %}" class="btn btnPrimary">
             Vedi tutti i progetti
           </a>
         </div>

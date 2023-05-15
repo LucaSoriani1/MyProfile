@@ -218,3 +218,12 @@ width: auto;
 color: #dfdfdf;
 background-color: #18d26e;
 }
+
+.toast-header-error{
+  color: #dfdfdf;
+  background-color: #d22418;
+  }
+  .toast-header-warning{
+  color: #000000;
+  background-color: #fb9f3d;
+  }

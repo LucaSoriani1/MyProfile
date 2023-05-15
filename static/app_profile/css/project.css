@@ -73,40 +73,48 @@
     margin-top: 12px;
 }
 
+.cutoff-text{
+    width: 100%;
+}
+
 @media (max-width:991px){
 
-    .description-mobile{
+     .description-mobile{
         display: flex;
         flex-direction: column;
         align-items: center;
         margin-right: 25px;
         margin-left: 25px;
-    }
+    } 
 
-    .description-mobile button{
-        margin-top: 22px;
-    }
-    
     .cutoff-text{
-        --max-line: 13;
-        display: -webkit-box;
-        --line-height: 1.4;
-        line-height: var(--line-height);
-        max-height: calc(var(--line-height)*var(--max-line));
+        height: 230px;
         overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: var(--max-line);
-        position: relative;
     }
 
-    .cutoff-text:has(+ .expand-button:not(:checked))::before{
+    .cutoff-text::before{
         content: '';
         position: absolute;
-        height: calc(1.2rem*var(--line-height));
         width: 100%;
-        bottom: 0;
-        pointer-events: none;
+        height: 230px;
         background: linear-gradient(to bottom, transparent, white);
+    }
+
+    .description-mobile.active .cutoff-text{
+        height: auto;
+    }
+
+    .description-mobile.active .cutoff-text::before{
+        display: none;
+    }
+
+    mjx-container{
+        position: inherit !important;
+    }
+
+    mjx-container::before {
+        content: '';
+        position: inherit !important;
     }
 
     .expand-button{
@@ -126,28 +134,23 @@
 
     .expand-button:hover{
         background-color: #d18c03;
+        color: white;
     }
 
     .expand-button::before{
         content: "Show more";
     }
 
-    .expand-button:checked::before{
+    .description-mobile.active .expand-button::before{
         content: "Hide";
     }
 
     .expand-button-it::before{
         content: "Altro";
     }
-
-    .expand-button-it:checked::before{
-        content: "Nascondi";
+    .description-mobile.active  .expand-button-it::before{
+        content: "Chiudi";
     }
-
-    .cutoff-text:has(+ .expand-button:checked){
-        --max-line:none;
-    }
-
 
     #description{
         display: none;
@@ -159,18 +162,32 @@
 }
 
 
+mjx-container {
+	overflow-x: auto;
+	overflow-y: hidden;
+	max-width: 100%;
+    text-indent: 0;
+    padding-bottom: 10px;
+}
 
-/* @media (min-width:992px){   
-    .details-container{
-        margin-top: 25%;
-    }
-} */
+mjx-container::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
 
+mjx-container::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
 
-/* .cutoff-text{
-    --max-line: 12;
-    display: -webkit-box;
-    overflow: hidden;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: var(--max-line);
-} */
+mjx-container::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #ffb727
+}
+
+mjx-container::-webkit-scrollbar-thumb:hover {
+    background-color: #d18c03;
+}

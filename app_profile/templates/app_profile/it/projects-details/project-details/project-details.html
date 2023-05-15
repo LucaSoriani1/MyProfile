@@ -8,11 +8,10 @@
 
     <!-- Title page -->
     <title>Luca Soriani - {{project.name_it}}</title>
-        
     
     <meta name="description" content="Profilo personale di Luca Soriani. Questa presentazione serve a mostrare il mio lavoro da Data Engineer e i miei progetti di Fisica e Full Stack"/>
     <meta name="keywords" content="Data Engineer Luca Soriani Python Machine Learning Full Stack Physics Profile Projects Quantum Computing"/>
-    
+
     <!-- Icon Page -->
     <link rel="shortcut icon" type="image/x-icon" href="{% static 'app_profile/img/ls_icon.ico' %}"/>
 
@@ -48,8 +47,8 @@
           <div class="d-flex justify-content-between align-items-center">
             <h2>{{project.name_it}}</h2>
             <ol>
-              <li><a href="/it/">Home</a></li>
-              <li><a href="/it/projects-details">Progetti</a></li>
+              <li><a href="{% url 'app_profile:it-home'%}">Home</a></li>
+              <li><a href="{% url 'app_profile:it-projects-details'%}">Progetti</a></li>
               <li>{{project.name_it}}</li>
             </ol>
           </div>
@@ -70,7 +69,7 @@
                   {{project.description_it}}
                   {% endautoescape %}
                 </div>
-                <input class="expand-button expand-button-it" type="checkbox">
+                <a class="expand-button expand-button-it" id="expand"></a>
               </div>
               <div class="col-lg-4 details-container">
                 <img class="image-project" src="{{project.image.url}}" alt="{{project.name_it}}">
@@ -127,10 +126,14 @@
         inlineMath: [['$', '$'], ['\\(', '\\)']]
       }
     };
+    MathJax.Hub.Config({
+      "HTML-CSS": { linebreaks: { automatic: true } },
+              SVG: { linebreaks: { automatic: true } }
+     });
     </script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="{% static 'app_profile/js/main.js' %}"></script>
-    <script src="{% static 'app_profile/js/single_project_view.js' %}"></script>
+    <script src="{% static 'app_profile/js/single-project.js' %}"></script>
   </body>
 </html>

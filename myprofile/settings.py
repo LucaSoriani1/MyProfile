@@ -85,14 +85,13 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'myprofile.urls'
 
-SESSION_EXPIRE_SECONDS = 1800
+SESSION_EXPIRE_SECONDS = 43200
 SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

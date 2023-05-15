@@ -1,14 +1,16 @@
 from django.contrib import admin
+
 from . models import (
     UserProfile,
     Project,
     Certificate,
     Skill,
-    ContactForm,
     Visitors,
     Visualization,
     VisualizationForIpDetail,
     )
+
+from .forms import ContactForm
 
 # Register your models here.
 
@@ -30,7 +32,7 @@ class SkillAdmin(admin.ModelAdmin):
 
 @admin.register(ContactForm)
 class ContactFormAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'subject')
+    list_display = ('name', 'email', 'subject', 'timestamp')
 
 @admin.register(Visitors)
 class VisitorsAdmin(admin.ModelAdmin):

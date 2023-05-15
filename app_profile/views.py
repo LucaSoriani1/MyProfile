@@ -1,23 +1,29 @@
 from django.shortcuts import render
+from django.db.models import Q
+from django.http import JsonResponse
+
 from .models import (
     UserProfile,
     Project,
     Certificate,
     Skill,
 )
-import random
-from django.http import JsonResponse
-from datetime import datetime
+from .forms import ContactModelForm, ContactItModelForm
 from .view_utils import get_contact, get_visualization, save_visitor_path
+
+import random
+from datetime import datetime
+
 
 url_check=""
 
 def error404(request, exception):
 
+    global url_check
+
     status=404
     url = request.build_absolute_uri()
 
-    global url_check
 
     if url_check != url:
         save_visitor_path(request, status)
@@ -31,10 +37,11 @@ def error404(request, exception):
 
 def error500(request):
 
+    global url_check
+    
     status=500
     url = request.build_absolute_uri()
 
-    global url_check
 
     if url_check != url:
         save_visitor_path(request, status)
@@ -46,14 +53,24 @@ def error500(request):
     else:
         return render(request, 'app_profile/eng/error/500.html', status=status)
 
-def index_eng(request):
-
+def index(request):
     global url_check
+    filter_type = 'filter'
 
-    if url_check != request.build_absolute_uri():
+    url = request.build_absolute_uri()
+    template = 'app_profile/eng/index.html'
+    form = ContactModelForm()
+
+    if '/it/' in url:
+        filter_type = 'filter_it'
+        template = 'app_profile/it/index.html'
+        form = ContactItModelForm()
+
+    
+    if url_check != url:
         save_visitor_path(request)
         get_visualization(request)
-        url_check=request.build_absolute_uri()
+        url_check=url
 
     context = {}
     fil=list()
@@ -61,90 +78,40 @@ def index_eng(request):
 
     certifications = Certificate.objects.filter(is_active=True).order_by("priority")
     projects_all = list(Project.objects.all())
-    skill_language = Skill.objects.filter(show=True).filter(is_language=True).order_by('?')
-    skill_cloud = Skill.objects.filter(show=True).filter(is_cloud=True).order_by('?')
-    skill_python = Skill.objects.filter(show=True).filter(is_python=True).order_by('?')
-    skill_other = Skill.objects.filter(show=True).filter(is_other=True).order_by('?')
-    filter_eng = list(Project.objects.values_list('filter', flat=True).distinct().order_by())
+    skill_language = Skill.objects.filter(Q(show=True) & Q(is_language=True)).order_by('?')
+    skill_cloud = Skill.objects.filter(Q(show=True) & Q(is_cloud=True)).order_by('?')
+    skill_python = Skill.objects.filter(Q(show=True) & Q(is_python=True)).order_by('?')
+    skill_other = Skill.objects.filter(Q(show=True) & Q(is_other=True)).order_by('?')
+    filter = list(Project.objects.values_list(filter_type, flat=True).distinct().order_by())
 
-    for f in filter_eng:
-        temp = list(Project.objects.filter(show = True).filter(filter = f))
+    for f in filter:
+        temp = list(Project.objects.filter(Q(show = True) & (Q(filter = f) | Q(filter_it = f))))
         if len(temp)>0:
             fil.append(f)
-            if len(temp) >=3:
-                projects.extend(random.sample(temp, 3))
-            else:
-                projects.extend(random.sample(temp, len(temp)))
+            projects.extend(random.sample(temp, 3)) if len(temp)>=3 else projects.extend(random.sample(temp, len(temp)))
 
     random.shuffle(projects)
 
-    user = UserProfile.objects.first()
+    user = UserProfile.objects.get(user_id = 1)
     
     if request.method == 'POST':
-        if get_contact(request):
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'error'})
-
-    context["certifications"] = certifications
-    context["projects"] = projects
-    context["user"] = user
-    context["filter"] = fil
-    context["projects_all"] = projects_all
-    context["skill_language"] = skill_language
-    context["skill_cloud"] = skill_cloud
-    context["skill_python"] = skill_python
-    context["skill_other"] = skill_other
-    context["age"] = datetime.today().year - user.born.year
-    context["experience"] = datetime.today().year - user.experience.year
-    
-    return render(request, 'app_profile/eng/index.html', context)
-
-def index_it(request):
-
-    global url_check
-
-    if url_check != request.build_absolute_uri():
-        save_visitor_path(request)
-        get_visualization(request)
-        url_check=request.build_absolute_uri()
-    
-    context = {}
-    fil = list()
-    projects = list()
-
-    certifications = Certificate.objects.filter(is_active=True).order_by("priority")
-    projects_all = list(Project.objects.all())
-    skill_language = Skill.objects.filter(show=True).filter(is_language=True).order_by('?')
-    skill_cloud = Skill.objects.filter(show=True).filter(is_cloud=True).order_by('?')
-    skill_python = Skill.objects.filter(show=True).filter(is_python=True).order_by('?')
-    skill_other = Skill.objects.filter(show=True).filter(is_other=True).order_by('?')
-    filter_it = list(Project.objects.values_list('filter_it', flat=True).distinct().order_by())
-
-    for f in filter_it:
-        temp = list(Project.objects.filter(show = True).filter(filter_it = f))
-        if len(temp)>0:
-            fil.append(f)
-            if len(temp) >=3:
-                projects.extend(random.sample(temp, 3))
-            else:
-                projects.extend(random.sample(temp, len(temp)))
-    
-    random.shuffle(projects)
-
-    user = UserProfile.objects.first()
-
-    if request.method == 'POST':
-        if get_contact(request):
-            return JsonResponse({'status': 'success'})
-        else:
-            return JsonResponse({'status': 'error'})
         
+        form = ContactModelForm(request.POST)
+        
+        if form.is_valid():
+            try:
+                get_contact(form)
+                return JsonResponse(data={"status":"success"}, status=200)
+            except:
+                return JsonResponse(data={"status":"error"}, status=400)
+        else:
+            return JsonResponse(data={"status":"invalid"}, status=400)
+
 
     context["certifications"] = certifications
     context["projects"] = projects
     context["user"] = user
-    context["filter_it"] = fil
+    context[filter_type] = fil
     context["projects_all"] = projects_all
     context["skill_language"] = skill_language
     context["skill_cloud"] = skill_cloud
@@ -152,83 +119,55 @@ def index_it(request):
     context["skill_other"] = skill_other
     context["age"] = datetime.today().year - user.born.year
     context["experience"] = datetime.today().year - user.experience.year
+    context["form"] = form
+    
+    return render(request, template, context)
 
-    return render(request, 'app_profile/it/index.html', context)
-
-def projects_details_eng(request):
+def projects_details(request):
 
     global url_check
+    url = request.build_absolute_uri()
+    template = 'app_profile/eng/projects-details/main.html'
+    filter_type = 'filter'
 
-    if url_check != request.build_absolute_uri():
+    if '/it/' in url:
+        filter_type = 'filter_it'
+        template = 'app_profile/it/projects-details/main.html'
+
+    if url_check != url:
         save_visitor_path(request)
         get_visualization(request)
-        url_check=request.build_absolute_uri()
+        url_check=url
 
     context = {}
     projects = dict()
 
-    filter_eng = list(Project.objects.values_list('filter', flat=True).distinct().order_by())
+    filter = list(Project.objects.values_list(filter_type, flat=True).distinct().order_by())
 
-    random.shuffle(filter_eng)
+    random.shuffle(filter)
 
-    for f in filter_eng:
-        temp = list(Project.objects.filter(show = True).filter(filter = f))
+    for f in filter:
+        temp = list(Project.objects.filter(Q(show = True) & (Q(filter = f) | Q(filter_it = f))))
         if len(temp)>0:
             random.shuffle(temp)
             projects[f] = temp
 
     context['projects'] = projects
 
-    return render(request, 'app_profile/eng/projects-details/main.html', context)
+    return render(request, template, context)
 
-def projects_details_it(request):
-
-    global url_check
-
-    if url_check != request.build_absolute_uri():
-        save_visitor_path(request)
-        get_visualization(request)
-        url_check=request.build_absolute_uri()
-
-    context = {}
-    projects = dict()
-
-    filter_it = list(Project.objects.values_list('filter_it', flat=True).distinct().order_by())
-
-    random.shuffle(filter_it)
-
-    for f in filter_it:
-        temp = list(Project.objects.filter(show = True).filter(filter_it = f))
-        if len(temp)>0:
-            random.shuffle(temp)
-            projects[f] = temp
-
-    context['projects'] = projects
-
-    return render(request, 'app_profile/it/projects-details/main.html', context)
-
-def project_detail_eng(request, id):
+def project_detail(request, page):
 
     global url_check
 
-    if url_check != request.build_absolute_uri():
+    url = request.build_absolute_uri()
+
+    template = 'app_profile/it/projects-details/project-details/project-details.html' if '/it/' in url else 'app_profile/eng/projects-details/project-details/project-details.html'
+    if url_check != url:
         save_visitor_path(request)
         get_visualization(request)
-        url_check=request.build_absolute_uri()
+        url_check = url
 
-    project = Project.objects.filter(id=id)
+    project = Project.objects.get(page_name = page)
 
-    return render(request, 'app_profile/eng/projects-details/project-details/project-details.html', {'project': project.first()})
-
-def project_detail_it(request, id):
-
-    global url_check
-
-    if url_check != request.build_absolute_uri():
-        save_visitor_path(request)
-        get_visualization(request)
-        url_check=request.build_absolute_uri()
-
-    project = Project.objects.filter(id=id)
-
-    return render(request, 'app_profile/it/projects-details/project-details/project-details.html', {'project': project.first()})
+    return render(request, template, {'project': project})
